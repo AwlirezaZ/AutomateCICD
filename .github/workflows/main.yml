@@ -1,1 +1,39 @@
+name: Alireza's First Pipeline
+
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+        - uses: actions/checkout@v3
+
+        - name: Setup .NET
+          uses: actions/setup-dotnet@v3
+          with: 
+            dotnet-version: 8.0.x
+
+        - name: Restore Dependecies
+          run: dotnet restore
+
+        - name: Build Project 
+          run: dotnet build --no-restore
+
+        - name: Test Project
+          run: dotnet test --no-build --verbosity normal
+
+        - name: Publish
+          run: dotnet publish -c Release output ./Release
+
+        - name: FTP DEPLOY
+          uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+          with:
+            server: ${{ secrets.FTP_SERVER_IP }}
+            username: ${{ secrets.FTP_USER }}
+            password: ${{ secrets.FTP_PASSWORD }}
+            local-dir: ./Release/
+        
 
