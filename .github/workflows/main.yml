@@ -26,7 +26,7 @@ jobs:
           run: dotnet test --no-build --verbosity normal
 
         - name: Publish
-          run: dotnet publish -c Release output ./Release
+          run: dotnet publish -c Release --output ./Release
 
         - name: FTP DEPLOY
           uses: SamKirkland/FTP-Deploy-Action@v4.3.4
