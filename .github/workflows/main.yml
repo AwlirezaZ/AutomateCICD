@@ -31,7 +31,7 @@ jobs:
         - name: FTP DEPLOY
           uses: genietim/ftp-action@releases/v4
           with:
-            server: ${{ secrets.FTP_SERVER_IP }}
+            host: ${{ secrets.FTP_SERVER_IP }}
             user: ${{ secrets.FTP_USER }}
             password: ${{ secrets.FTP_PASSWORD }}
             localDir: ./Release
