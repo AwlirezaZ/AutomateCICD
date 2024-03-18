@@ -29,10 +29,10 @@ jobs:
           run: dotnet publish -c Release --output ./Release
 
         - name: FTP DEPLOY
-          uses: sebastianpopp/ftp-action@releases/v2
+          uses: SamKirkland/FTP-Deploy-Action@v4.3.5
           with:
-            host: ${{ secrets.FTP_SERVER_IP }}
-            user: ${{ secrets.FTP_USER }}
+            server: ${{ secrets.FTP_SERVER_IP }}
+            username: ${{ secrets.FTP_USER }}
             password: ${{ secrets.FTP_PASSWORD }}
             localDir: ./Release/
         
