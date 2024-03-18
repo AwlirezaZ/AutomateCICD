@@ -29,7 +29,7 @@ jobs:
           run: dotnet publish -c Release --output ./Release
 
         - name: FTP DEPLOY
-          uses: genietim/ftp-action@releases/v4
+          uses: genietim/ftp-action@releases/v4.0.1
           with:
             host: ${{ secrets.FTP_SERVER_IP }}
             user: ${{ secrets.FTP_USER }}
