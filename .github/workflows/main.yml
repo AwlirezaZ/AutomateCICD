@@ -28,12 +28,14 @@ jobs:
         - name: Publish
           run: dotnet publish -c Release --output ./Release
 
-        - name: FTP DEPLOY
-          uses: airvzxf/ftp-deployment-action@latest
+        - name: SCP DEPLOYMENT
+          uses: appleboy/scp-action@v0.1.7
           with:
-            server: ${{ secrets.FTP_SERVER_IP }}
-            user: ${{ secrets.FTP_USER }}
-            password: ${{ secrets.FTP_PASSWORD }}
-            local_dir: ./Release
+            host: ${{ secrets.SERVER_IP }}
+            username: ${{ secrets.SERVER_USER }}
+            password: ${{ secrets.SERVER_PASSWORD }}
+            port: ${{ secrets.SERVER_PORT }}
+            source: ./Release
+            target: /home/alireza
         
 
