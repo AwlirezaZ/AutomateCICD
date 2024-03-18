@@ -29,11 +29,11 @@ jobs:
           run: dotnet publish -c Release --output ./Release
 
         - name: FTP DEPLOY
-          uses: airvzxf/ftp-deployment-action@latest
+          uses: genietim/ftp-action@releases/v4
           with:
             server: ${{ secrets.FTP_SERVER_IP }}
             user: ${{ secrets.FTP_USER }}
             password: ${{ secrets.FTP_PASSWORD }}
-            local_dir: ./Release
+            localDir: ./Release
         
 
