@@ -50,5 +50,5 @@ jobs:
             envs: PASS
             script: |
               whoami
-              echo "$PASS" | sudo -s cp -r /home/alireza/Release /var/www/        
+              echo "$PASS" | sudo -S cp -r /home/alireza/Release /var/www/        
 
