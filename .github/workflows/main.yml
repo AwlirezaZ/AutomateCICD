@@ -46,5 +46,5 @@ jobs:
             port: ${{ secrets.SERVER_PORT }}
             script: |
               whoami
-              cp /home/alireza/Release /var/www/        
+              cp -r /home/alireza/Release /var/www/        
 
