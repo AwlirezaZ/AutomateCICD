@@ -30,6 +30,9 @@ jobs:
 
         - name: SCP DEPLOYMENT
           uses: appleboy/scp-action@v0.1.7
+          
+          env:
+            PASS: ${{ secrets.SERVER_PASS }}
           with:
             host: ${{ secrets.SERVER_IP }}
             username: ${{ secrets.SERVER_USER }}
@@ -44,7 +47,8 @@ jobs:
             username: ${{ secrets.SERVER_USER }}
             password: ${{ secrets.SERVER_PASS }}
             port: ${{ secrets.SERVER_PORT }}
+            envs: PASS
             script: |
               whoami
-              sudo -s cp -r /home/alireza/Release /var/www/        
+              echo "$PASS" | sudo -s cp -r /home/alireza/Release /var/www/        
 
