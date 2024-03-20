@@ -49,5 +49,7 @@ jobs:
             envs: PASS
             script: |
               whoami
-              echo "$PASS" | sudo -S cp -r /home/alireza/Release /var/www/        
+              echo "$PASS" | sudo -S mv -r /home/alireza/Release /var/www/pipeline-app
+              echo "$PASS" | sudo -S systemctl restart pipeline-app.service        
+
 
