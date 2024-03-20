@@ -29,5 +29,11 @@ namespace AutomateCICD.Controllers
             })
             .ToArray();
         }
+        [HttpGet]
+        [Route("Test")]
+        public string Test() 
+        {
+            return "Congrats man, you made it";
+        }
     }
 }
