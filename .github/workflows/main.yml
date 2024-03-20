@@ -30,9 +30,6 @@ jobs:
 
         - name: SCP DEPLOYMENT
           uses: appleboy/scp-action@v0.1.7
-          
-          env:
-            PASS: ${{ secrets.SERVER_PASS }}
           with:
             host: ${{ secrets.SERVER_IP }}
             username: ${{ secrets.SERVER_USER }}
@@ -42,6 +39,8 @@ jobs:
             target: /home/alireza
         - name: RUN SCRIPT ON SERVER
           uses: appleboy/ssh-action@v1.0.3
+          env:
+            PASS: ${{ secrets.SERVER_PASS }}
           with:
             host: ${{ secrets.SERVER_IP }}
             username: ${{ secrets.SERVER_USER }}
