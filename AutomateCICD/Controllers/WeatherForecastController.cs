@@ -26,6 +26,7 @@ namespace AutomateCICD.Controllers
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 PublisheName = "Alireza and Amir Mohammad",
+                From = "Douzaj",
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
 
             })

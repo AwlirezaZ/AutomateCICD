@@ -10,5 +10,6 @@ namespace AutomateCICD
 
         public string? Summary { get; set; }
         public string PublisheName { get; set; }
+        public string From { get; internal set; }
     }
 }
